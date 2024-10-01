@@ -1,6 +1,5 @@
 document.querySelectorAll("a").forEach(a => a.setAttribute("target", "_blank"))
 document.querySelectorAll("nav a").forEach(a => a.setAttribute("target", "_self"))
-const buttonAcess = "Acessar";
 
 
 const checkbox = document.querySelector('.opções__botão');
@@ -49,12 +48,13 @@ fetch('http://192.168.1.91:8080/ords/cda/cda-links/links')
       cardIcon.setAttribute('class', 'icon')
       tittle.setAttribute('class', 'card-title apex')
       button.setAttribute('class', 'button apex')
+      button.setAttribute('href', item.url)
 
       tittle.innerHTML = `${item.nome}`;
       description.innerHTML = `${item.descricao}`;
       li.innerHTML =  `${item.categoria}`;
       ul.innerHTML = `${item.categoria}`
-      button.innerHTML = `<a href="${item.url}">${buttonAcess}</a>`
+      button.innerHTML = `<a class=button">Acessar</a>`
 
     card.appendChild(cardIcon)
     card.appendChild(tittle)
@@ -86,7 +86,7 @@ fetch('http://192.168.1.91:8080/ords/cda/cda-links/links')
       description.innerHTML = `${item.descricao}`;
       li.innerHTML =  `${item.categoria}`;
       ul.innerHTML = `${item.categoria}`
-      button.innerHTML = `<a href="${item.url}">${buttonAcess}</a>`
+      button.innerHTML = `<a class=button">Acessar</a>`
 
     card.appendChild(cardIcon)
     card.appendChild(tittle)
@@ -118,7 +118,7 @@ fetch('http://192.168.1.91:8080/ords/cda/cda-links/links')
       description.innerHTML = `${item.descricao}`;
       li.innerHTML =  `${item.categoria}`;
       ul.innerHTML = `${item.categoria}`
-      button.innerHTML = `<a href="${item.url}">${buttonAcess}</a>`
+      button.innerHTML = `<a class=button">Acessar</a>`
 
     card.appendChild(cardIcon)
     card.appendChild(tittle)
