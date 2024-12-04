@@ -3,61 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CDA - Aplicações Web</title>
-    <link rel="shortcut icon" type="png" href="./assets/img/logo_cda.png">
-    <link rel="stylesheet" href="./assets/css/styles.css">
-    <script src="./assets/js/script.js" defer></script>
+    <title>CDA - Aplicações</title>
+    <link rel="shortcut icon" type="png" href="./assets/img/logomarca.png">
+    <link rel="stylesheet" href="./assets/styles/styles.css">
+    
+    <script src="./assets/script/endpoint.js" defer></script>
+    <script src="./assets/script/filter.js" defer></script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        azul: {
+                            claro: '#C5DFFF',
+                            escuro: '#00346F',
+                            hover: '#1057B0'
+                        },
+                        verde: '#259F3F',
+                        vermelho: '#e4000f',
+                        header: '#FFFFFF',
+                        body: '#FFFFFC',
+                    },
+                }
+            }
+        }
+    </script>
+
 </head>
 <body>
-    <header>
-        <div class="cabecalho">
-            <a href="#"><img src="./assets/img/logo_cdadistribuidora.png" alt="CDA-Distribuidora"></a>
-            <nav>
-                <a href="#apex-section" class="link-apex">Apex</a>
-                <a href="#grafana-section" class="link-grafana">Grafana</a>
-                <a href="#oxar-section" class="link-oxar">Oxar</a>
+    <header class="flex bg-header justify-between sticky p-4 items-center justify-center top-0 z-10 sticky w-full mb-16">
+        <div class="flex">
+            <img class="ml-2" width="90" src="./assets/img/logo_cdadistribuidora.png" alt="Logo da CDA-Distribuidora">
+        </div>
+
+        <div class=" absolute left-0 ml-44">
+            <nav class="text-azul-escuro">
+                <ul class="flex gap-10">
+                    <li><a href="#apex">APEX</a><hr></li>
+                    <li><a href="#intranet">INTRANET</a><hr class="border-vermelho"></li>
+                    <li><a href="#internet">INTERNET</a><hr class="border-verde"></li>
+                </ul>
             </nav>
         </div>
-
-        <div class="intranet">
-            <ul class="opções">
-                <input type="checkbox" id="opções-menu" class="opções__botão">
-                <label for="opções-menu" class="opções__rotulo">
-                    <li class="opções__item">Internet</li>
-                </label>
-                <ul class="lista-menu"></ul>
-            </ul>
-        </div>
     </header>
-    
-    <main>
-        <h1>Qual aplicação deseja?</h1>
-        <div class="search">
-        <div class="input-wrapper">
-            <label for="filter" class="sr-only"></label>
-            <div class="buscar">
-                <img src="./assets/img/lupa.png" alt="">
-                <input onkeyup="filtrar()" id="filter" type="text" placeholder=" Informe o nome da aplicação">
-                <ul id="listApplications"></ul>
-            </div>
-        </div>
-        </div> 
 
-        <br id="apex-section">
-        <br><br>
-        <section class="cards" id="apex">
-        </section>
-        <br id="grafana-section">
-        <br><br>
-        <section class="cards" id="grafana">
-        </section>
-        <br id="oxar-section">
-        <br><br>
-        <section class="cards" id="oxar"></section><br>
+    <div class="flex justify-center my-14">
+        <label class="text-sm font-bold text-gray-700" for="search"></label>
+        <input onkeyup="filtrar()" id="inputBusca" class="relative pl-12 text-sm py-3 shadow w-3/6 focus:outline-none rounded-3xl border hover:border-azul-claro hover:ring-1 hover:ring-azul-escuro focus:border-azul-escuro focus:ring-1 focus:ring-azul-escuro" id="search" type="text" placeholder="Digite a aplicação desejada" id="filter">
+        <ul id="listApplications"></ul>
+        <img src="./assets/img/search.png" class="absolute my-3 my-3.5 center opacity-60 icon-lupa duration-300" width="18">
+    </div>
+
+    <div class="buscar">
+        <ul class="listaApplications"></ul>
+    </div>
+
+    <main class="aplicacoes">
+        <section class="cards" id="apex"></section>
+        <section class="cards" id="intranet"></section>
+        <section class="cards" id="internet"></section>
     </main>
 
-    <footer>
-        <p>© 2024 CDA Distribuidora. Todos os direitos reservados. </p>
+    <footer class="p-28">
     </footer>
 </body>
+
 </html>
